@@ -10,9 +10,14 @@ import UIKit
 
 class TodoListViewController: UITableViewController {
 
+    var tasks = ["Cook", "Homework", "Gym"]
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        if let task = defaults.array(forKey: "TodoeyListArray") as? [String] {
+            tasks = task
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -20,7 +25,7 @@ class TodoListViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    var tasks = ["Cook", "Homework", "Gym", "Не залететь раньше времени"]
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -57,7 +62,9 @@ class TodoListViewController: UITableViewController {
         
         let action = UIAlertAction(title: "Add item", style: .default) { (alertAction) in
             self.tasks.append(textField.text!)
-            self.tableView.reloadData()
+            self.defaults.set(self.tasks, forKey: "TodoeyListArray") //save our data to defaults
+            self.tableView.reloadData()//reload the table to see changes
+            
         }
         alert.addAction(action)
         
