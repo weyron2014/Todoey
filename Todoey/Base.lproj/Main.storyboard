@@ -32,7 +32,14 @@
                             <outlet property="delegate" destination="HGN-wB-Q40" id="xbF-R7-DKk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Oleg top" id="xhx-Ae-BF3"/>
+                    <navigationItem key="navigationItem" title="Oleg top" id="xhx-Ae-BF3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="p5w-Y4-tTN">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="addButton:" destination="HGN-wB-Q40" id="MqE-do-2P1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fkp-8N-anr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
